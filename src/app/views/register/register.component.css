@@ -1,0 +1,130 @@
+
+*{
+  font-family: "Paytone One";
+}
+.example-form{
+  width: 100%;
+}
+
+.example-full-width{
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.background-image{
+  width: 100%;
+  height: 100%;
+}
+
+.create-account{
+  width: 60%;
+  height: 100%;
+  float: right;
+  font-family: "Paytone One";
+
+}
+
+.create-account-img{
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  background-image: radial-gradient(circle, #1ce9bd, #20e9bb, #24e9b8, #27e8b6, #2be8b3, #2fe8b2, #32e8b2, #35e8b1, #38e8b2, #3be9b3, #3ee9b4, #41e9b5);
+}
+
+.register{
+  width: 40%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.082);
+  float: left;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.centralize{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.form{
+  width: 80%;
+  height: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.register-tittle{
+  font-family: "Paytone One";
+  font-weight: 500;
+  font-size: 50px;
+  text-shadow: 0 13.36px 8.896px #c0c0c0,0 -2px 1px #fff;
+  color: #45cf8f;
+}
+
+.register-button{
+  width: 100%!important;
+  background-color: #45cf8f;
+  transition: 0.3s;
+}
+
+.forgot-password{
+  text-align: start;
+}
+
+.register-form{
+  margin-top: 50px;
+}
+
+.background{
+  height: 100%;
+  width: 100%;
+}
+
+.create-account-tittle {
+  font-family: "Paytone One";
+  font-size: 4em;
+  text-shadow: 0 13.36px 8.896px #c0c0c0,0 -2px 1px #fff;
+  line-height: 1;
+}
+
+.create-account-text {
+  margin-top: 30px;
+  font-family: "Paytone One";
+  font-size: 20px;
+  color: rgb(56, 56, 56);
+  font-weight: 300;
+}
+.links{
+  color: #567080;
+  transition: 0.3s;
+}
+
+.links:hover{
+  color: #45cf8f;
+}
+
+.swal2-popup {
+  font-family: "Paytone One";
+}
+
+
+
+@media (max-width: 900px) {
+  .create-account{
+    display: none;
+  }
+
+  .register{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.082);
+  }
+}

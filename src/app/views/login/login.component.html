@@ -1,0 +1,47 @@
+<div class="background">
+  <div class="welcome">
+    <div class="centralize welcome-img">
+      <h1 class="welcome-tittle">Welcome to ToDo App!</h1>
+      <P class="welcome-text">
+        Todo App is the easiest way to get your stuff done and organized!
+      </P>
+    </div>
+  </div>
+  <div class="login">
+    <div class="centralize">
+      <div class="form">
+        <div>
+          <h1 class="login-tittle text-center">LOGIN</h1>
+        <form [formGroup]="form" class="login-form">
+          <mat-form-field class="example-full-width " >
+            <mat-label >E-mail</mat-label>
+            <input matInput formControlName="email" >
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width mt-3" >
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password">
+          </mat-form-field>
+
+          <div class="row">
+            <div class="col-12 md-auto mt-3">
+            <button class="login-button" mat-raised-button color="primary" [disabled]="form.invalid" (click)="login()">GET STARTED</button>
+            </div>
+          </div>
+
+          <div class="mt-4 " >
+            <a class="forgot-password links" (click)="forgotPassword()">Forgot the password?</a>
+          </div>
+
+          <mat-divider class="mt-4"></mat-divider>
+
+          <div class="mt-4">
+             <p>Don't have an account? <a class="links" [routerLink]="['/register']" >Register here!</a></p>
+          </div>
+
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

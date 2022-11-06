@@ -1,0 +1,47 @@
+<div class="background">
+  <div class="create-account">
+    <div class="centralize create-account-img">
+      <h1 class="create-account-tittle">Create an account!</h1>
+      <P class="create-account-text">
+        Easy and safe way to create your account. You will be able to change these informations whenever you want!
+      </P>
+    </div>
+  </div>
+  <div class="register">
+    <div class="centralize">
+      <div class="form">
+        <div>
+          <h1 class="register-tittle text-center">REGISTER</h1>
+          <form [formGroup]="form" class="register-form">
+            <mat-form-field class="example-full-width " >
+              <mat-label >Name</mat-label>
+              <input matInput formControlName="name" >
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width mt-3" >
+              <mat-label >E-mail</mat-label>
+              <input matInput formControlName="email" >
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width mt-3" >
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" type="password">
+            </mat-form-field>
+
+            <div class="row">
+              <div class="col-12 md-auto mt-3">
+              <button class="register-button" mat-raised-button color="primary" [disabled]="form.invalid" (click)="signup()">SIGN UP</button>
+              </div>
+            </div>
+
+            <div class="mt-4">
+               <p>Already have an account? <a class="links" [routerLink]="['/login']" >Login here!</a></p>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

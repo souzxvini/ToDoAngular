@@ -1,0 +1,24 @@
+
+<div class="background-image">
+  <div class="centralize">
+    <div class="form">
+      <div>
+        <h1 class="tittle text-center">Forgot your password?</h1>
+        <p class="text-center subtittle">Type your e-mail to receive a confirmation code!</p>
+      <form [formGroup]="form" class="login-form">
+        <mat-form-field class="example-full-width " >
+          <mat-label >E-mail</mat-label>
+          <input matInput formControlName="email" >
+        </mat-form-field>
+
+        <div class="row">
+          <div class="col-12 md-auto mt-3">
+          <button class="login-button" mat-raised-button color="primary" [disabled]="form.invalid" (click)="sendCode()">SEND</button>
+          </div>
+        </div>
+
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
