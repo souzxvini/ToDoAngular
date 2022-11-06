@@ -17,6 +17,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { EmailConfirmComponent } from './views/forgot-password/email-confirm/email-confirm.component';
 import { ResetPasswordComponent } from './views/forgot-password/reset-password/reset-password.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MessageComponent } from './components/message/message/message.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     LoginComponent,
     RegisterComponent,
     EmailConfirmComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

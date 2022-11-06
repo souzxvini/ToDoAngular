@@ -13,6 +13,11 @@
         <div>
           <h1 class="login-tittle text-center">LOGIN</h1>
         <form [formGroup]="form" class="login-form">
+
+          <app-message *ngIf="form.get('email')?.errors?.['email'] &&
+            form.get('email')?.touched"
+            message="Type the e-mail in the correct format!" class="text-start">
+            </app-message>
           <mat-form-field class="example-full-width " >
             <mat-label >E-mail</mat-label>
             <input matInput formControlName="email" >

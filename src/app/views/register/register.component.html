@@ -18,6 +18,11 @@
               <input matInput formControlName="name" >
             </mat-form-field>
 
+            <app-message *ngIf="form.get('email')?.errors?.['email'] &&
+            form.get('email')?.touched"
+            message="Type the e-mail in the correct format!" class="text-start">
+            </app-message>
+
             <mat-form-field class="example-full-width mt-3" >
               <mat-label >E-mail</mat-label>
               <input matInput formControlName="email" >

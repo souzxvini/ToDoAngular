@@ -55,6 +55,25 @@ export class LoginComponent implements OnInit {
         title: `Welcome, ${data.name}!`
       })
       this.router.navigate(['home']);
+    },() => {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
+      Toast.fire({
+        icon: 'error',
+        title: `Wrong credentials!`
+
+      })
+      this.form.reset();
     })
   }
 
