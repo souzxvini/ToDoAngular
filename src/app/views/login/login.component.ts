@@ -15,6 +15,8 @@ import { MatDialog } from '@angular/material/dialog';
 export class LoginComponent implements OnInit {
 
   form: FormGroup
+  hidePassword = true;
+  hidePasswordConfirm = true;
 
   constructor(
     private fb: FormBuilder,
@@ -42,7 +44,7 @@ export class LoginComponent implements OnInit {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 5000,
         timerProgressBar: true,
         didOpen: (toast) => {
           toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -60,7 +62,7 @@ export class LoginComponent implements OnInit {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 5000,
         timerProgressBar: true,
         didOpen: (toast) => {
           toast.addEventListener('mouseenter', Swal.stopTimer)

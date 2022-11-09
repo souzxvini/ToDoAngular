@@ -5,6 +5,7 @@
       <P class="welcome-text">
         Todo App is the easiest way to get your stuff done and organized!
       </P>
+
     </div>
   </div>
   <div class="login">
@@ -25,7 +26,10 @@
 
           <mat-form-field class="example-full-width mt-3" >
             <mat-label>Password</mat-label>
-            <input matInput formControlName="password" type="password">
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+              <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
           </mat-form-field>
 
           <div class="row">

@@ -13,6 +13,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class EmailConfirmComponent implements OnInit {
 
   form: FormGroup
+  isLoading: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -28,18 +29,54 @@ export class EmailConfirmComponent implements OnInit {
   }
 
   sendCode(){
-
+    this.isLoading = true
     let email = this.form.get('email').value;
+    this.form.get('email').disable();
 
     this.authService.sendEmailCode(email).subscribe( () => {
+      this.isLoading = false;
       this.dialogRef.close();
-      Swal.fire(
-        'Success!',
-        'Code was sent to your e-mail, check it out!',
-        'success'
-      )
+
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
+      Toast.fire({
+        icon: 'warning',
+        title: `The confirmation code was sent to your e-mail!`!
+      })
+
 
       this.router.navigate([`reset-password/${email}`]);
+    }, () => {
+      this.isLoading = false;
+      this.form.get('email').enable();
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 5000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
+      Toast.fire({
+        icon: 'error',
+        title: `There's no user registered with this e-mail!`!
+      })
+
+      this.form.reset()
     })
   }
 

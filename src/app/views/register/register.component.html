@@ -23,6 +23,11 @@
             message="Type the e-mail in the correct format!" class="text-start">
             </app-message>
 
+            <app-message
+              *ngIf="form.get('email')?.errors?.['existentUser']"
+              message="There's already an user registered with this e-mail!" class="text-start"
+            ></app-message>
+
             <mat-form-field class="example-full-width mt-3" >
               <mat-label >E-mail</mat-label>
               <input matInput formControlName="email" >
@@ -30,8 +35,33 @@
 
             <mat-form-field class="example-full-width mt-3" >
               <mat-label>Password</mat-label>
-              <input matInput formControlName="password" type="password">
+              <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+              <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
             </mat-form-field>
+
+            <div class="text-start ">
+              <p>Password requirements:</p>
+              <div >
+                <ul class="password-requirements">
+                <li *ngIf="form.get('password')?.errors?.['noSpecialCharacter']" class="wrong-requirements">
+                  <mat-icon>help_outline</mat-icon>Must have at least one special character
+                </li>
+                <li *ngIf="!form.get('password')?.errors?.['noSpecialCharacter']" class="correct-requirements">
+                  <mat-icon>done</mat-icon>Must have at least one special character
+                </li>
+
+                <li *ngIf="form.get('password')?.errors?.['noNumberCharacter']"  class="wrong-requirements">
+                  <mat-icon>help_outline</mat-icon>Must have at least one number.
+                </li>
+                <li *ngIf="!form.get('password')?.errors?.['noNumberCharacter']"  class="correct-requirements">
+                  <mat-icon>done</mat-icon>Must have at least one number.
+                </li>
+              </ul>
+              </div>
+
+            </div>
 
             <div class="row">
               <div class="col-12 md-auto mt-3">

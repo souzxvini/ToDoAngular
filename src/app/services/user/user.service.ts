@@ -29,4 +29,7 @@ export class UserService {
     return this.http.put<any>(`${API}/user/updateForgotPassword`, user, this.httpOptions);
   }
 
+  public verifyExistentUser(email: string): Observable<boolean>{
+    return this.http.get<boolean>( `${API}/user/exists?email=${email}`);
+  }
 }

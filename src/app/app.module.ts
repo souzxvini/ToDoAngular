@@ -18,6 +18,8 @@ import { EmailConfirmComponent } from './views/forgot-password/email-confirm/ema
 import { ResetPasswordComponent } from './views/forgot-password/reset-password/reset-password.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MessageComponent } from './components/message/message/message.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { MessageComponent } from './components/message/message/message.component
     RegisterComponent,
     EmailConfirmComponent,
     ResetPasswordComponent,
-    MessageComponent
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,9 @@ import { MessageComponent } from './components/message/message/message.component
     MatButtonModule,
     MatDividerModule,
     SweetAlert2Module.forRoot(),
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

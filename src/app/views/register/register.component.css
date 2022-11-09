@@ -1,5 +1,5 @@
 
-*{
+*:not(mat-icon){
   font-family: "Paytone One";
 }
 .example-form{
@@ -91,7 +91,7 @@
 .create-account-tittle {
   font-family: "Paytone One";
   font-size: 4em;
-  text-shadow: 0 13.36px 8.896px #c0c0c0,0 -2px 1px #fff;
+  text-shadow: 0 13.36px 8.896px #6a98a0,0 -2px 1px rgb(0, 0, 0);
   line-height: 1;
 }
 
@@ -115,7 +115,18 @@
   font-family: "Paytone One";
 }
 
+.password-requirements{
+  text-decoration: none;
+  list-style: none;
+}
 
+.correct-requirements{
+  color: #45cf8f;
+}
+
+.wrong-requirements{
+  color: #e9ad2a;
+}
 
 @media (max-width: 900px) {
   .create-account{

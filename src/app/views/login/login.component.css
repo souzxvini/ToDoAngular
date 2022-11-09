@@ -1,5 +1,5 @@
 
-*{
+*:not(mat-icon){
   font-family: "Paytone One";
 }
 .example-form{
