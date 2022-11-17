@@ -1,1 +1,116 @@
-<button (click)="signout()">Logout</button>
+<div class="background">
+  <app-header></app-header>
+  <div class="container">
+    <div class="text-center mt-5 mb-5">
+      <h1 class="welcome-tittle">
+        It's time to get your stuff done!
+      </h1>
+    </div>
+      <div class="grid">
+        <div  class="centralize add-task">
+          <form [formGroup]="form">
+            <div class="row mx-auto ">
+            <div  class="col-9 col-md-10">
+              <mat-form-field  class="task-input centralize" >
+                <mat-label >Task</mat-label>
+                <input matInput formControlName="task" >
+              </mat-form-field>
+            </div>
+            <div class="col-2">
+              <div class="centralize">
+                <button class="add-task-button " mat-raised-button [disabled]="form.invalid" (click)="addTask()"><mat-icon>add</mat-icon></button>
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
+        <div  class="centralize progress-bar">
+          <div>
+            <small><mat-icon>timeline</mat-icon> Progress</small>
+          </div>
+          <div>
+            <mat-progress-bar mode="determinate" value="{{progress}}" ></mat-progress-bar>
+            <nav>
+              <div class="text-start">
+                  <small> 0% </small>
+                </div>
+                <div class="text-center">
+                  <small > 50% </small>
+                </div>
+                <div class="text-end">
+                  <small > 100% </small>
+                </div>
+            </nav>
+          </div>
+        </div>
+        <div  class="tasks-todo">
+          <div class="task-todo-tittle">
+            <h2><mat-icon class="todo-icon">info</mat-icon>To Do</h2>
+          </div>
+          <mat-divider class="mb-4"></mat-divider>
+          <div class="tasks-list">
+            <div class="tasks-list-content" *ngIf="todoTasksList$|async as todoTasksList">
+              <mat-card class="task-todo-card mb-4" *ngFor="let taskTodo of todoTasksList">
+                <div class="row">
+                  <div class="col-1">
+                    <mat-checkbox class="centralize" [checked]="isTaskDone(taskTodo.status)" (click)="changeTaskStatus(taskTodo.id)"></mat-checkbox>
+                  </div>
+                  <div class="col-8 col-sm-8 col-xl-9">
+                    <p class="centralize">
+                      {{taskTodo.description}}
+                    </p>
+                  </div>
+                  <div class="col-1">
+                    <button mat-icon-button class="centralize" (click)="editTodoTask(taskTodo.id)">
+                      <mat-icon class="delete-button centralize">edit</mat-icon>
+                    </button>
+                  </div>
+                  <div class="col-1">
+                    <button mat-icon-button class="centralize" (click)="deleteTodoTask(taskTodo.id)">
+                      <mat-icon class="delete-button centralize" color="warn">delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-card>
+              <div class="centralize" *ngIf="todoTasksList.length == 0">
+                <h1>You don't have any tasks to do!</h1>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="tasks-done">
+          <div class="task-done-tittle">
+            <h2><mat-icon class="done-icon">done_all</mat-icon> Done</h2>
+          </div>
+          <mat-divider class="mb-4"></mat-divider>
+          <div class="tasks-list">
+            <div class="tasks-list-content" *ngIf="doneTasksList$|async as doneTasksList">
+              <mat-card class="task-done-card mb-4" *ngFor="let taskDone of doneTasksList">
+                <div class="row">
+                  <div class="col-1">
+                    <mat-checkbox class="centralize" [checked]="isTaskDone(taskDone.status)" (click)="changeTaskStatus(taskDone.id)" ></mat-checkbox>
+                  </div>
+                  <div  class="col-9 col-sm-9 col-xl-10">
+                    <p class="centralize">
+                      {{taskDone.description}}
+                    </p>
+                  </div>
+                  <div class="col-1">
+                    <button mat-icon-button class="centralize">
+                      <mat-icon class="delete-button centralize" color="warn" (click)="deleteDoneTask(taskDone.id)">delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-card>
+              <div class="centralize" *ngIf="doneTasksList.length == 0">
+                <h1>You don't have any tasks done!</h1>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+  </div>
+ </div>
+

@@ -10,7 +10,7 @@ import { RegisterComponent } from './views/register/register.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
@@ -20,6 +20,19 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MessageComponent } from './components/message/message/message.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
+import { HeaderComponent } from './components/header/header/header.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import { MenuOptionsComponent } from './views/home/menu-options/menu-options.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { AuthInterceptor } from './services/token/token-interceptor.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { ProgressCompletedComponent } from './views/dialogs/progress-completed/progress-completed.component';
+import { EditTaskDialogComponent } from './views/dialogs/edit-task-dialog/edit-task-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +43,10 @@ import {MatIconModule} from '@angular/material/icon';
     EmailConfirmComponent,
     ResetPasswordComponent,
     MessageComponent,
+    HeaderComponent,
+    MenuOptionsComponent,
+    EditTaskDialogComponent,
+    ProgressCompletedComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +62,19 @@ import {MatIconModule} from '@angular/material/icon';
     SweetAlert2Module.forRoot(),
     MatDialogModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    MatSlideToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

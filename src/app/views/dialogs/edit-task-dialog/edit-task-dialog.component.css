@@ -1,0 +1,15 @@
+*:not(mat-icon){
+  font-family: "Paytone One";
+}
+
+.example-full-width{
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.update-button{
+  background-color: #4eb6df; ;
+}

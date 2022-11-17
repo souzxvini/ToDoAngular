@@ -17,11 +17,11 @@
           <input matInput formControlName="email" >
         </mat-form-field>
 
-        <div class="row">
-          <div class="col-12 md-auto mt-3">
+          <div mat-dialog-actions>
+          <button class="login-button" mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+            <span class="example-spacer"></span>
           <button class="login-button" mat-raised-button color="primary" [disabled]="form.invalid || isLoading" (click)="sendCode()">SEND</button>
           </div>
-        </div>
 
         <div *ngIf="isLoading" class="spinner" >
           <mat-spinner ></mat-spinner>

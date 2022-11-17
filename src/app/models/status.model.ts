@@ -1,3 +1,4 @@
-export class Status{
-  name: string;
+export enum Status{
+  TO_DO = 'TO DO',
+  DONE = 'DONE'
 }

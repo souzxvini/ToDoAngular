@@ -37,7 +37,7 @@
 .login{
   width: 40%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.082);
+  background-color: rgb(255, 255, 255);
   float: right;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
@@ -123,6 +123,6 @@
   .login{
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.082);
+    background-color: rgb(255, 255, 255);
   }
 }

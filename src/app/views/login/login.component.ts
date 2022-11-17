@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-
     let user = new User();
 
     user.email = this.form.get("email").value
@@ -54,7 +53,7 @@ export class LoginComponent implements OnInit {
 
       Toast.fire({
         icon: 'success',
-        title: `Welcome, ${data.name}!`
+        title: `<p style="font-family: Paytone One; margin: auto">Welcome, ${data.name}!</p> `
       })
       this.router.navigate(['home']);
     },() => {
@@ -72,10 +71,9 @@ export class LoginComponent implements OnInit {
 
       Toast.fire({
         icon: 'error',
-        title: `Wrong credentials!`
+        title: `<p style="font-family: Paytone One; margin: auto">Wrong credentials!</p> `
 
       })
-      this.form.reset();
     })
   }
 

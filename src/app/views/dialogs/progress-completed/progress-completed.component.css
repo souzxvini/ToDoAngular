@@ -1,0 +1,10 @@
+*:not(mat-icon){
+  font-family: "Paytone One";
+  color: #3f3f3f;
+}
+
+.button{
+  background-color: rgb(219, 170, 7);
+  font-size: 1em;
+  padding: 0 15px;
+}

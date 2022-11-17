@@ -24,14 +24,16 @@ export class AuthService {
 
   public authenticate(user: any): Observable<any>{
     return this.http.post<any>( `${API}/auth`, user, this.httpOptions).pipe(map((resp) => {
-      sessionStorage.setItem('user', user.email);
-			sessionStorage.setItem('token', 'Bearer ' + resp.token);
+      sessionStorage.setItem('userEmail', resp.email);
+      sessionStorage.setItem('userName', resp.name);
+			sessionStorage.setItem('token', 'Bearer ' + resp.jwttoken);
 			return resp;
     }));
   }
 
 	signout() {
-		sessionStorage.removeItem('user');
+		sessionStorage.removeItem('userEmail');
+		sessionStorage.removeItem('userName');
 		sessionStorage.removeItem('token');
 
 		this.router.navigate(['login']);
@@ -41,13 +43,16 @@ export class AuthService {
 		return sessionStorage.getItem('token') !== null;
 	}
 
-	getSignedinUser() {
-		return sessionStorage.getItem('user') as string;
+	getSignedinUserEmail() {
+		return sessionStorage.getItem('userEmail') as string;
+	}
+
+  getSignedinUserName() {
+		return sessionStorage.getItem('userName') as string;
 	}
 
 	getToken() {
-		let token = sessionStorage.getItem('token') as string;
-		return token;
+		return sessionStorage.getItem('token') as string;
 	}
 
   sendEmailCode(email: string){

@@ -51,7 +51,7 @@ export class EmailConfirmComponent implements OnInit {
 
       Toast.fire({
         icon: 'warning',
-        title: `The confirmation code was sent to your e-mail!`!
+        title: `<p style="font-family: Paytone One;">The confirmation code was sent to your e-mail!</p> `!
       })
 
 
@@ -73,10 +73,10 @@ export class EmailConfirmComponent implements OnInit {
 
       Toast.fire({
         icon: 'error',
-        title: `There's no user registered with this e-mail!`!
+        title: `<p style="font-family: Paytone One;">There's no user registered with this e-mail!</p> `!
       })
 
-      this.form.reset()
+      this.form.get('email').setErrors({invalid: true})
     })
   }
 

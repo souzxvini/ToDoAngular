@@ -1,0 +1,49 @@
+*:not(mat-icon){
+  font-family: "Paytone One";
+}
+
+
+.link{
+  color: rgb(66, 66, 66);
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.link:hover{
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link-logout{
+  color: rgb(66, 66, 66);
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.link-logout:hover{
+  color: rgb(151, 23, 23);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.tittle{
+  color: rgb(44, 155, 230);
+}
+.subtittle{
+  color: rgb(0, 0, 0);
+}
+
+.mat-divider{
+  border-top-width: 2px;
+  border-top-style: ridge;
+  border-color: rgb(233, 233, 233);
+}
+
+mat-icon{
+  transform: scale(2.1);
+}
+
+.close{
+  transform: scale(1.1);
+}
