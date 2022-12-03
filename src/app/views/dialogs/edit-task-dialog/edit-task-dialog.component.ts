@@ -20,7 +20,7 @@ export class EditTaskDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<EditTaskDialogComponent>,
      private fb: FormBuilder,
      private taskService: TaskService
-  ) { }
+  ) {dialogRef.disableClose = true }
 
   ngOnInit(): void {
     this.form = this.fb.group({

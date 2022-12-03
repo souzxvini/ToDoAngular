@@ -5,6 +5,7 @@
 
 .button{
   background-color: rgb(219, 170, 7);
-  font-size: 1em;
+  font-size:1.2em;
   padding: 0 15px;
+  color: white;
 }

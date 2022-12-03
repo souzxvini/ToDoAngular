@@ -1,0 +1,36 @@
+<button mat-icon-button (click)="close()">
+  <mat-icon class="close">close</mat-icon>
+</button>
+<div class="text-center">
+  <h1 class>
+    Please, confirm your credentials!
+  </h1>
+</div>
+
+<form [formGroup]="form" class="login-form">
+
+  <app-message *ngIf="form.get('email')?.errors?.['email'] &&
+    form.get('email')?.touched"
+    message="Type the e-mail in the correct format!" class="text-start">
+    </app-message>
+  <mat-form-field class="example-full-width " >
+    <mat-label >E-mail</mat-label>
+    <input matInput formControlName="email" >
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width mt-3" >
+    <mat-label>Password</mat-label>
+    <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+    <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+      <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="row">
+    <div class="col-12 md-auto mt-3">
+    <button class="login-button" mat-raised-button color="primary" [disabled]="form.invalid" (click)="login()">CONFIRM LOGIN</button>
+    </div>
+  </div>
+
+</form>
+

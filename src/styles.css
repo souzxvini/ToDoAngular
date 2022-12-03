@@ -1,11 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%;
-  background-image: radial-gradient(circle, #46dbf9, #41d9f4, #3cd7f0, #37d5eb, #33d3e6, #37d2e5, #3bd1e5, #3fd0e4, #4ad0e7, #54d1ea, #5ed1ec, #67d1ee);}
-body { margin: 0; font-family: "Paytone One"; }
-
-
-
+html, body {
+  height: 100%;
+}
+body{
+  background-image: radial-gradient(circle, #46dbf9, #41d9f4, #3cd7f0, #37d5eb, #33d3e6, #37d2e5, #3bd1e5, #3fd0e4, #4ad0e7, #54d1ea, #5ed1ec, #67d1ee);
+  margin: 0;
+  padding: 0;
+}
 
 .mat-progress-bar-fill::after {
   background-color: #25d625;

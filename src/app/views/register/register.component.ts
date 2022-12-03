@@ -6,7 +6,7 @@ import { UserExistsValidationService } from './../../services/user/user-exists-v
 import { UserService } from './../../services/user/user.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import Swal from 'sweetalert2';
 import { SpecialCharacterValidationService } from 'src/app/password-validators/special-character-validation.service';
@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup
   hidePassword = true;
   hidePasswordConfirm = true;
+  @ViewChild('myForm') myForm;
 
   constructor(
     private fb: FormBuilder,
@@ -69,6 +70,7 @@ export class RegisterComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: '<p style="font-family: Paytone One; margin: auto">Yes!</p>',
       cancelButtonText: '<p style="font-family: Paytone One; margin: auto">Cancel</p>',
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         this.userService.signup(user).subscribe( () => {
@@ -95,6 +97,27 @@ export class RegisterComponent implements OnInit {
 
       }
     })
+  }
 
+  exit(): boolean{
+    let leave: boolean = false;
+
+    Swal.fire({
+      title: '<p style="font-family: Paytone One;">Are you sure?</p>',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '<p style="font-family: Paytone One; margin: auto">Yes!</p>',
+      cancelButtonText: '<p style="font-family: Paytone One; margin: auto">Cancel</p>',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        return leave = true;
+      } else{
+        return leave = false
+      }
+    })
+
+    return leave;
   }
 }

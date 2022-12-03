@@ -32,4 +32,8 @@ export class UserService {
   public verifyExistentUser(email: string): Observable<boolean>{
     return this.http.get<boolean>( `${API}/user/exists?email=${email}`);
   }
+
+  public updateUserData(user: User, email:string): Observable<any>{
+    return this.http.put<User>(`${API}/user/updateUserData?email=${email}`, user);
+  }
 }

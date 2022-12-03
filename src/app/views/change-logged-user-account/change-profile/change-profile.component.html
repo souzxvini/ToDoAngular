@@ -1,0 +1,30 @@
+<div class="background-image">
+  <div class="centralize">
+    <div class="form">
+      <div>
+        <h1 class="tittle">Change your account informations!</h1>
+        <form #myForm="ngForm" [formGroup]="form" class="edit-profile-form" (ngSubmit)="confirm()">
+          <mat-form-field class="example-full-width mt-3" >
+            <mat-label >Name</mat-label>
+            <input matInput formControlName="name" >
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width mt-3" >
+            <mat-label >E-mail</mat-label>
+            <input matInput formControlName="email" >
+          </mat-form-field>
+
+          <div class="row">
+            <div class="col-12 md-auto  mt-3">
+              <button class="cancel-button" mat-raised-button color="warn" [routerLink]="['/home']">Cancel</button>
+              <button class="button" mat-raised-button color="primary" [disabled]="form.invalid">Confirm</button>
+            </div>
+          </div>
+
+          <mat-divider class="mt-4"></mat-divider>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

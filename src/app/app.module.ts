@@ -1,3 +1,4 @@
+import { EditProfileDialogComponent } from './views/dialogs/edit-profile/edit-profile-dialog.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -30,9 +31,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AuthInterceptor } from './services/token/token-interceptor.service';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatNativeDateModule} from '@angular/material/core';
 import { ProgressCompletedComponent } from './views/dialogs/progress-completed/progress-completed.component';
 import { EditTaskDialogComponent } from './views/dialogs/edit-task-dialog/edit-task-dialog.component';
+import { UserExitDialogComponent } from './views/dialogs/user-exit-dialog/user-exit-dialog.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ChangeProfileComponent } from './views/change-logged-user-account/change-profile/change-profile.component';
+import { ConfirmLoggedUserComponent } from './views/change-logged-user-account/confirm-logged-user/confirm-logged-user.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,12 @@ import { EditTaskDialogComponent } from './views/dialogs/edit-task-dialog/edit-t
     HeaderComponent,
     MenuOptionsComponent,
     EditTaskDialogComponent,
-    ProgressCompletedComponent
+    ProgressCompletedComponent,
+    UserExitDialogComponent,
+    FooterComponent,
+    ChangeProfileComponent,
+    EditProfileDialogComponent,
+    ConfirmLoggedUserComponent
   ],
   imports: [
     BrowserModule,

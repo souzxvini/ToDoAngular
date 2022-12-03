@@ -29,3 +29,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.send-button{
+  background-color: #049ce2;
+  color: white;
+}

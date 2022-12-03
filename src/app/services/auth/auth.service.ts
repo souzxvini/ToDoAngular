@@ -1,3 +1,4 @@
+import { User } from './../../models/user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
@@ -29,6 +30,10 @@ export class AuthService {
 			sessionStorage.setItem('token', 'Bearer ' + resp.jwttoken);
 			return resp;
     }));
+  }
+
+  public confirmAuthenticatedUser(user: User): Observable<any>{
+    return this.http.post<any>( `${API}/auth/confirmAuthenticatedUserData`, user);
   }
 
 	signout() {

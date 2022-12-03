@@ -11,5 +11,10 @@
 }
 
 .update-button{
-  background-color: #4eb6df; ;
+  background-color: #049ce2;
+  font-size: 1.1em;
+}
+
+.cancel-button{
+  font-size: 1.1em;
 }

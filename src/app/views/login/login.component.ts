@@ -30,6 +30,8 @@ export class LoginComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]]
     })
+
+
   }
 
   login(){

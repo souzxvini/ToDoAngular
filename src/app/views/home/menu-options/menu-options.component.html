@@ -1,12 +1,13 @@
 <button mat-icon-button (click)="close()">
   <mat-icon class="close">close</mat-icon>
 </button>
-  <h1 class="text-center tittle">MENU</h1>
+  <h1 class="text-center">Hi,<b class=" tittle"> {{userName}}</b>!</h1>
     <div>
       <h2 class="subtittle">Account</h2>
-      <a class="link">Privacy and configurations</a>
+      <a class="link" (click)="editProfile()">Edit Profile Informations</a>
     </div>
     <mat-divider class="mt-3 mb-3"></mat-divider>
-    <a class="link-logout" (click)="signout()">Logout</a>
+
+    <a class="link-logout" (click)="signout()"><mat-icon class="logout">exit_to_app</mat-icon>Logout</a>
 
 

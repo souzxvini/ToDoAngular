@@ -47,3 +47,14 @@ mat-icon{
 .close{
   transform: scale(1.1);
 }
+
+.logout{
+  transform: scale(1.1);
+  color: rgb(151, 23, 23);
+  margin-right: 5px;
+}
+
+mat-icon{
+  display: inline-flex;
+  vertical-align: middle;
+}

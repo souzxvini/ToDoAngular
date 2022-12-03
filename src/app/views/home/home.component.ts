@@ -49,12 +49,20 @@ export class HomeComponent implements OnInit {
   }
 
   getTodoTasks(){
-    this.todoTasksList$ = this.taskService.getTodoTasks();
+    this.todoTasksList$ = this.taskService.getTodoTasks().pipe(
+      tap(() => {
+        this.getProgress()
+      })
+    )
   }
 
   getDoneTasks(){
-    this.doneTasksList$ = this.taskService.getDoneTasks();
-    this.getProgress()
+    this.doneTasksList$ = this.taskService.getDoneTasks().pipe(
+      tap(() => {
+        this.getProgress()
+      })
+    )
+
   }
 
   addTask(){
@@ -80,6 +88,7 @@ export class HomeComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: '<p style="font-family: Paytone One; margin: auto">Yes!</p>',
       cancelButtonText: '<p style="font-family: Paytone One; margin: auto">Cancel</p>',
+      allowOutsideClick: false
     }).then((result) => {
       if(result.isConfirmed) {
         this.todoTasksList$ = this.taskService.deleteTask(taskId).pipe(
@@ -102,13 +111,15 @@ export class HomeComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: '<p style="font-family: Paytone One; margin: auto">Yes!</p>',
       cancelButtonText: '<p style="font-family: Paytone One; margin: auto">Cancel</p>',
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         this.doneTasksList$ = this.taskService.deleteTask(taskId).pipe(
           switchMap(() => this.taskService.getDoneTasks()),
           tap(() => {
-            this.alert("top", "Task deleted!", "success")
             this.getProgress()
+            this.alert("top", "Task deleted!", "success")
+
           })
         )
       }
@@ -171,7 +182,7 @@ export class HomeComponent implements OnInit {
       toast: true,
       position: `${position}`,
       showConfirmButton: false,
-      timer: 5000,
+      timer: 3000,
       timerProgressBar: true,
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)

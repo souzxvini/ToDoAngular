@@ -20,7 +20,7 @@ export class EmailConfirmComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     public dialogRef: MatDialogRef<EmailConfirmComponent>,
-  ) { }
+  ) {dialogRef.disableClose = true }
 
   ngOnInit(): void {
     this.form = this.fb.group({

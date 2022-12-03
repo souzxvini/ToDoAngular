@@ -75,13 +75,8 @@
 .register-button{
   width: 100%!important;
   background-color: #45cf8f;
-  transition: 0.3s;
 }
-.register-button:hover{
-  width: 100%!important;
-  background-color: #45cf8f;
-  transition: 0.3s;
-}
+
 
 .forgot-password{
   text-align: start;

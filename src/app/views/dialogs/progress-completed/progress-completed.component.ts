@@ -10,7 +10,7 @@ export class ProgressCompletedComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<ProgressCompletedComponent>
-  ) { }
+  ) { dialogRef.disableClose = true}
 
   ngOnInit(): void {
   }

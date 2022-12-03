@@ -1,0 +1,29 @@
+*:not(mat-icon){
+  font-family: "Paytone One";
+}
+
+h1{
+  font-size: 2em;
+  margin:30px
+}
+
+mat-icon{
+  transform: scale(1.1);
+}
+
+mat-icon{
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.name-button{
+  background-color: rgb(219, 191, 28);
+  color: white;
+  margin: 40px 15px;
+}
+
+.password-button{
+  background-color: rgb(192, 50, 40);
+  margin: 15px;
+  color: white;
+}

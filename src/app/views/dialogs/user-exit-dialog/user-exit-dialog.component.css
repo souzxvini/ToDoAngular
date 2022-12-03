@@ -1,0 +1,39 @@
+*:not(mat-icon){
+  font-family: "Paytone One";
+}
+
+.example-full-width{
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.cancel-button{
+  color: white;
+  font-size:18px;
+  margin-right: 5px;
+}
+
+.confirm-button{
+  background-color: #049ce2;
+  color: white;
+  font-size:18px;
+  margin-left: 5px;
+}
+
+h1{
+  font-size: 2em;
+  margin:30px
+}
+
+p{
+  font-size:1.2em;
+  font-style: normal; font-variant: normal; font-weight: 100; line-height: 10px;
+  margin:20px;
+  line-height: 1em;
+
+}
+
+

@@ -1,5 +1,6 @@
+import { EditProfileDialogComponent } from './../../dialogs/edit-profile/edit-profile-dialog.component';
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import Swal from 'sweetalert2';
@@ -16,7 +17,8 @@ export class MenuOptionsComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    public dialogRef: MatDialogRef<MenuOptionsComponent>
+    public dialogRef: MatDialogRef<MenuOptionsComponent>,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +33,7 @@ export class MenuOptionsComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: '<p style="font-family: Paytone One; margin: auto">Yes!</p>',
       cancelButtonText: '<p style="font-family: Paytone One; margin: auto">Cancel</p>',
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         this.dialogRef.close();
@@ -42,5 +45,12 @@ export class MenuOptionsComponent implements OnInit {
 
   close(){
     this.dialogRef.close()
+  }
+
+  editProfile(){
+    this.dialogRef.close()
+    const dialogRef = this.dialog.open(EditProfileDialogComponent, {
+      width: '600px'
+     });
   }
 }

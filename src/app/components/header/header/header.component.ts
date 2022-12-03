@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
 
   openMenu(){
     const dialogRef = this.dialog.open(MenuOptionsComponent, {
-      width: '300px'
+      width: '450px'
      });
      dialogRef.afterClosed().subscribe(() => {
      })

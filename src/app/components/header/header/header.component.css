@@ -30,5 +30,8 @@ header{
   background: white;
 }
 
-.tittle{
+@media (max-width: 1000px) {
+  .tittle{
+    font-size: 0.9em;
+  }
 }

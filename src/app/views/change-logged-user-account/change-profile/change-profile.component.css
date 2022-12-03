@@ -1,0 +1,96 @@
+*:not(mat-icon){
+  font-family: "Paytone One";
+}
+
+.background-image{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(216, 201, 62);
+
+}
+
+.centralize{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.form{
+  padding: 50px;
+  width: 500px;
+  height: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  background-color: white;
+}
+
+.example-form{
+  width: 100%;
+}
+
+.example-full-width{
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.tittle{
+    font-family: "Paytone One";
+    font-size: 30px;
+    color: rgb(216, 201, 62);
+}
+
+.button{
+  background-color: rgb(216, 201, 62);
+  font-size:18px;
+  margin-left: 5px;
+}
+
+.tittle {
+  font-family: "Paytone One";
+  font-size: 4em;
+  text-shadow: 0 13.36px 8.896px #c0c0c0,0 -2px 1px #fff;
+  line-height: 1;
+}
+
+.links:hover{
+  color: rgb(216, 201, 62);
+}
+
+.links{
+  color: #567080;
+  transition: 0.3s;
+}
+
+.links:hover{
+  color: rgb(216, 201, 62);
+}
+
+.cancel-button{
+  font-size:18px;
+  margin-right: 5px;
+}
+@media (max-width: 900px){
+  .form{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: white;
+  }
+
+  .edit-profile-form{
+    width: 80%;
+    margin:auto;
+  }
+
+}
+

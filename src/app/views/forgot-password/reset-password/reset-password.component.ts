@@ -71,9 +71,7 @@ export class ResetPasswordComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: '<p style="font-family: Paytone One; margin: auto;">Yes!</p> ',
       cancelButtonText: '<p style="font-family: Paytone One; margin: auto;">Cancel</p> ',
-      customClass: {
-        popup: 'swal2-popup'
-      }
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         this.userService.updateForgotPassword(user).subscribe( () => {
