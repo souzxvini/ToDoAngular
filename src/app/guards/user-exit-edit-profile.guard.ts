@@ -20,7 +20,8 @@ export class UserExitEditProfileGuard implements CanDeactivate<unknown> {
 
       if(component.form.dirty && !component.myForm.submitted){
         const dialogRef = this.dialog.open(UserExitDialogComponent, {
-        width: '500px'
+        width: '500px',
+        height:'340px'
        });
        return dialogRef.afterClosed()
     } else{

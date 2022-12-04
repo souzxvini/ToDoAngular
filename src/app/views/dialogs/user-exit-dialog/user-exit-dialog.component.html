@@ -1,16 +1,19 @@
+<div class="centralize">
+  <div class="text-center">
+    <h1 class>
+      Do you really want to exit?
+    </h1>
+    <p>
+      The currently data will be lost!
+    </p>
+  </div>
 
-<div class="text-center">
-  <h1 class>
-    Do you really want to exit?
-  </h1>
-  <p>
-    The currently data will be lost!
-  </p>
-</div>
+  <div mat-dialog-actions class="justify-content-center">
 
-<div mat-dialog-actions class="justify-content-center">
+    <button class="cancel-button" mat-raised-button color="warn" [mat-dialog-close]="false">Cancel</button>
 
-  <button class="confirm-button" mat-raised-button [mat-dialog-close]="true">Yes!</button>
-  <button class="cancel-button" mat-raised-button color="warn" [mat-dialog-close]="false">Cancel</button>
+    <button class="confirm-button" mat-raised-button [mat-dialog-close]="true">Yes!</button>
+
+  </div>
 
 </div>

@@ -1,3 +1,4 @@
+import { ChangePasswordComponent } from './views/change-logged-user-account/change-password/change-password.component';
 import { EditProfileDialogComponent } from './views/dialogs/edit-profile/edit-profile-dialog.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -56,6 +57,7 @@ import { ConfirmLoggedUserComponent } from './views/change-logged-user-account/c
     FooterComponent,
     ChangeProfileComponent,
     EditProfileDialogComponent,
+    ChangePasswordComponent,
     ConfirmLoggedUserComponent
   ],
   imports: [

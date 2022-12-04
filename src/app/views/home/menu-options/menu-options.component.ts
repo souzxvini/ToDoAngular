@@ -24,6 +24,9 @@ export class MenuOptionsComponent implements OnInit {
   ngOnInit(): void {
     this.userName = this.authService.getSignedinUserName();
   }
+
+
+
   signout(){
     Swal.fire({
       title: '<p style="font-family: Paytone One; margin: auto;">Are you sure you want to logout?</p>',

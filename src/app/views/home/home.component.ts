@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Status } from 'src/app/models/status.model';
 import { EditTaskDialogComponent } from '../dialogs/edit-task-dialog/edit-task-dialog.component';
 import { ProgressCompletedComponent } from '../dialogs/progress-completed/progress-completed.component';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -30,9 +31,10 @@ export class HomeComponent implements OnInit {
     private authService: AuthService,
     private taskService: TaskService,
     private fb: FormBuilder,
-    private dialog: MatDialog
-    ) {
+    private dialog: MatDialog,
+    private userService: UserService,
 
+    ) {
     }
 
   ngOnInit(): void {
@@ -40,6 +42,13 @@ export class HomeComponent implements OnInit {
     this.getTodoTasks();
     this.getDoneTasks();
     this.createForm();
+    this.clearUserRandomCodeAndRole();
+
+  }
+
+  clearUserRandomCodeAndRole(){
+    this.userService.clearUserRandomCodeAndRole(this.authService.getSignedinUserEmail()).subscribe(() => {
+    });
   }
 
   createForm(){
@@ -74,6 +83,7 @@ export class HomeComponent implements OnInit {
       tap(() => {
         this.alert("top", "New task added!", "success")
         this.form.reset();
+        this.form.get('task').clearAsyncValidators();
         this.getProgress()
       }
     ))

@@ -51,7 +51,8 @@ export class ConfirmLoggedUserComponent implements OnInit {
           this.router.navigate([`edit-profile/${this.form.get('email').value}`]);
         } else{
           this.dialogRef.close()
-          this.router.navigate([`editebr/${this.form.get('email').value}`]);
+          sessionStorage.setItem('userRole', "CHANGEPASSWORD");
+          this.router.navigate([`edit-password/${this.form.get('email').value}`]);
         }
       } else{
         this.alert("top-end", "Wrong credentials!", "error")

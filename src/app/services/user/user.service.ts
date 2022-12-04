@@ -36,4 +36,18 @@ export class UserService {
   public updateUserData(user: User, email:string): Observable<any>{
     return this.http.put<User>(`${API}/user/updateUserData?email=${email}`, user);
   }
+
+  public changeLoggedUserPassword(user: User, email:string): Observable<any>{
+    return this.http.put<User>(`${API}/user/updateLoggedUserPassword?email=${email}`, user);
+  }
+
+  public clearUserRandomCodeAndRole(email:string): Observable<any>{
+    sessionStorage.removeItem('userRole');
+    let user = new User()
+    return this.http.put<User>(`${API}/user/clearUserRandomCodeAndRole?email=${email}`, user);
+  }
+
+  public verifyUserAuthorities(email: string): Observable<boolean>{
+    return this.http.get<boolean>( `${API}/user/userHasAuthorities?email=${email}`);
+  }
 }

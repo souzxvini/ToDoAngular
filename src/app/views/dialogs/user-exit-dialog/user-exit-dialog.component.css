@@ -16,6 +16,15 @@
   margin-right: 5px;
 }
 
+.centralize{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
 .confirm-button{
   background-color: #049ce2;
   color: white;

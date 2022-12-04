@@ -10,6 +10,8 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { ChangeProfileComponent } from './views/change-logged-user-account/change-profile/change-profile.component';
 import { UserExitEditProfileGuard } from './guards/user-exit-edit-profile.guard';
+import { ChangePasswordComponent } from './views/change-logged-user-account/change-password/change-password.component';
+import { ChangePasswordGuard } from './guards/change-password.guard';
 
 const routes: Routes = [
   {
@@ -43,6 +45,12 @@ const routes: Routes = [
     path:'edit-profile/:email',
     component: ChangeProfileComponent,
     canActivate: [HomeGuard],
+    canDeactivate: [UserExitEditProfileGuard]
+  },
+  {
+    path:'edit-password/:email',
+    component: ChangePasswordComponent,
+    canActivate: [ChangePasswordGuard],
     canDeactivate: [UserExitEditProfileGuard]
   },
 ];

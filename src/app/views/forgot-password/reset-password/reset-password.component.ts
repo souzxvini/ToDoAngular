@@ -1,6 +1,6 @@
 import { UserService } from './../../../services/user/user.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { confirmPasswordEqualsValidator } from '../../../password-validators/confirm-password-equals.validator';
@@ -21,6 +21,7 @@ export class ResetPasswordComponent implements OnInit {
   form: FormGroup;
   hidePassword = true;
   hidePasswordConfirm = true;
+  @ViewChild('myForm') myForm;
 
   constructor(
     private fb: FormBuilder,
