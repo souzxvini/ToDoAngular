@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup
   hidePassword = true;
   hidePasswordConfirm = true;
+  isLoading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -35,12 +36,14 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    this.isLoading = true
     let user = new User();
 
     user.email = this.form.get("email").value
     user.password = this.form.get("password").value
 
     this.authService.authenticate(user).subscribe( data => {
+      this.isLoading = false
       const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -59,6 +62,7 @@ export class LoginComponent implements OnInit {
       })
       this.router.navigate(['home']);
     },() => {
+      this.isLoading = false
       const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
