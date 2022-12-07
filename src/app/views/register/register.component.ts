@@ -63,7 +63,7 @@ export class RegisterComponent implements OnInit {
     user.confirmPassword = this.form.get("passwordConfirm").value
 
     Swal.fire({
-      title: '<p style="font-family: Paytone One;">Are you sure about yours credentials?</p>',
+      title: '<p style="font-family: Paytone One;">Are you sure about your credentials?</p>',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
