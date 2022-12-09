@@ -24,6 +24,13 @@
   background-color: #2dafff;
 }
 
+.spinner-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 
 mat-icon{
   display: inline-flex;

@@ -17,6 +17,7 @@ export class ConfirmLoggedUserComponent implements OnInit {
   hidePassword = true;
   hidePasswordConfirm = true;
   redirectTo: string;
+  isLoading: boolean = false
 
   constructor(
     private dialogRef: MatDialogRef<ConfirmLoggedUserComponent>,
@@ -37,12 +38,14 @@ export class ConfirmLoggedUserComponent implements OnInit {
   }
 
   login(){
+    this.isLoading = true
     let user = new User();
 
     user.email = this.form.get("email").value
     user.password = this.form.get("password").value
 
     this.authService.confirmAuthenticatedUser(user).subscribe( data => {
+      this.isLoading = false
       if(data == true){
         this.alert("top-end", "Correct credentials!", "success")
 
@@ -57,10 +60,8 @@ export class ConfirmLoggedUserComponent implements OnInit {
       } else{
         this.alert("top-end", "Wrong credentials!", "error")
       }
-
-
-
     },() => {
+      this.isLoading = false
       const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',

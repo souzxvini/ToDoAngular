@@ -26,6 +26,9 @@ export class HomeComponent implements OnInit {
   totalTasks: number
   doneTasks: number
   progress: number
+  isLoading: boolean = false
+  loadingTodoTasks: boolean = false;
+  loadingDoneTasks: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -58,8 +61,10 @@ export class HomeComponent implements OnInit {
   }
 
   getTodoTasks(){
+    this.loadingTodoTasks = true
     this.todoTasksList$ = this.taskService.getTodoTasks().pipe(
       tap(() => {
+        this.loadingTodoTasks = false
         this.getProgress()
       })
     )
@@ -75,12 +80,18 @@ export class HomeComponent implements OnInit {
   }
 
   addTask(){
+    this.isLoading = true
+    this.loadingTodoTasks = true
+
     let task = new Task();
     task.description = this.form.get('task').value
 
     this.todoTasksList$ = this.taskService.addTask(task).pipe(
       switchMap(() => this.taskService.getTodoTasks()),
       tap(() => {
+        this.isLoading = false
+        this.loadingTodoTasks = false
+        this.form.get('task').enable()
         this.alert("top", "New task added!", "success")
         this.form.reset();
         this.form.get('task').clearAsyncValidators();
@@ -101,9 +112,11 @@ export class HomeComponent implements OnInit {
       allowOutsideClick: false
     }).then((result) => {
       if(result.isConfirmed) {
+        this.loadingTodoTasks = true
         this.todoTasksList$ = this.taskService.deleteTask(taskId).pipe(
           switchMap(() => this.taskService.getTodoTasks()),
           tap(() => {
+            this.loadingTodoTasks = false
             this.alert("top", "Task deleted!", "success")
             this.getProgress("deleted")
           })
@@ -129,7 +142,6 @@ export class HomeComponent implements OnInit {
           tap(() => {
             this.getProgress()
             this.alert("top", "Task deleted!", "success")
-
           })
         )
       }

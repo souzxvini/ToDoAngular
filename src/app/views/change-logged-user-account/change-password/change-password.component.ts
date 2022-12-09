@@ -21,8 +21,7 @@ export class ChangePasswordComponent implements OnInit {
 
   form: FormGroup
   @ViewChild('myForm') myForm;
-  hidePassword = true;
-  hidePasswordConfirm = true;
+  isLoading: boolean = false
 
   constructor(
     private fb: FormBuilder,
@@ -62,16 +61,19 @@ export class ChangePasswordComponent implements OnInit {
       title: '<p style="font-family: Paytone One;">Are you sure? It will be necessary to log-in again!</p>',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#25d625',
       cancelButtonColor: '#d33',
-      confirmButtonText: '<p style="font-family: Paytone One; margin: auto">Yes, change it!</p>',
+      confirmButtonText: '<p style="font-family: Paytone One; margin: auto">Yes!</p>',
       cancelButtonText: '<p style="font-family: Paytone One; margin: auto">No!</p>',
       allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
+        this.isLoading = true
         this.userService.changeLoggedUserPassword(user, this.authService.getSignedinUserEmail()).subscribe(() => {
               this.authService.signout();
               return true;
+          }, () => {
+            this.isLoading = false
           })
 
         }

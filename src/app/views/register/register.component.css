@@ -82,6 +82,10 @@
   background-color: #45cf8f;
 }
 
+.register-button b{
+ letter-spacing: 1px;
+}
+
 
 .forgot-password{
   text-align: start;
@@ -143,6 +147,13 @@
 mat-icon{
   display: inline-flex;
   vertical-align: middle;
+}
+
+.spinner-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 @media (max-width: 900px) {

@@ -20,9 +20,8 @@ import { confirmPasswordEqualsValidator } from 'src/app/password-validators/conf
 export class RegisterComponent implements OnInit {
 
   form: FormGroup
-  hidePassword = true;
-  hidePasswordConfirm = true;
   @ViewChild('myForm') myForm;
+  isLoading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -73,7 +72,10 @@ export class RegisterComponent implements OnInit {
       allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
+    this.isLoading = true;
+
         this.userService.signup(user).subscribe( () => {
+          this.isLoading = false;
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-start',
@@ -92,7 +94,7 @@ export class RegisterComponent implements OnInit {
           })
           this.router.navigate(['login']);
         }, ()=>{
-
+          this.isLoading = false;
         })
 
       }

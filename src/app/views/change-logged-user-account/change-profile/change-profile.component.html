@@ -9,15 +9,26 @@
             <input matInput formControlName="name" >
           </mat-form-field>
 
+
+          <app-message
+              *ngIf="form.get('email')?.errors?.['existentUser']"
+              message="There's already an user registered with this e-mail!" class="text-start"
+            ></app-message>
+
           <mat-form-field class="example-full-width mt-3" >
             <mat-label >E-mail</mat-label>
             <input matInput formControlName="email" >
           </mat-form-field>
 
           <div class="row">
-            <div class="col-12 md-auto  mt-3">
-              <button class="cancel-button" mat-raised-button color="warn" type="button" [routerLink]="['/home']">Cancel</button>
-              <button class="button" mat-raised-button color="primary" [disabled]="form.invalid || !form.dirty">Confirm</button>
+            <div class="col-6 md-auto  mt-3">
+              <button class="cancel-button" mat-raised-button color="warn" type="button" [routerLink]="['/home']" [disabled]="isLoading">Cancel</button>
+            </div>
+            <div class="col-6 md-auto  mt-3">
+              <button class="button" mat-raised-button color="primary" [disabled]="form.invalid ||  isLoading">
+                <b *ngIf="!isLoading">Confirm</b>
+                <div *ngIf="isLoading" class="spinner-button"><mat-spinner [diameter]="35"></mat-spinner></div>
+              </button>
             </div>
           </div>
 

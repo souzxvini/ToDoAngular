@@ -28,7 +28,10 @@
 
   <div class="row">
     <div class="col-12 md-auto mt-3">
-    <button class="confirm-button" mat-raised-button color="primary" [disabled]="form.invalid" (click)="login()">CONFIRM LOGIN</button>
+    <button class="confirm-button" mat-raised-button color="primary" [disabled]="form.invalid || isLoading" (click)="login()">
+      <b *ngIf="!isLoading">CONFIRM LOGIN</b>
+          <div *ngIf="isLoading" class="spinner-button"><mat-spinner [diameter]="35"></mat-spinner></div>
+    </button>
     </div>
   </div>
 

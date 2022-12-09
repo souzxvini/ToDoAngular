@@ -121,6 +121,8 @@ mat-icon{
 .add-task-button{
   background-color: #4eb6df;
   color: white;
+  width: 100%!important;
+  padding: 5px;
 }
 
 small{
@@ -160,7 +162,12 @@ small{
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
-
+.spinner-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
 @media (max-width: 1000px) {
 

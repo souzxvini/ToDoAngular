@@ -19,9 +19,8 @@ import { Min6CharactersValidationService } from 'src/app/password-validators/min
 export class ResetPasswordComponent implements OnInit {
 
   form: FormGroup;
-  hidePassword = true;
-  hidePasswordConfirm = true;
   @ViewChild('myForm') myForm;
+  isLoading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -58,7 +57,6 @@ export class ResetPasswordComponent implements OnInit {
 
   confirmNewPassword(){
     let user = new User();
-
     user.email = this.form.get('email').value;
     user.password = this.form.get('password').value;
     user.confirmPassword = this.form.get("passwordConfirm").value
@@ -75,7 +73,9 @@ export class ResetPasswordComponent implements OnInit {
       allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
+        this.isLoading = true
         this.userService.updateForgotPassword(user).subscribe( () => {
+          this.isLoading = false
           const Toast = Swal.mixin({
             toast: true,
             position: 'top',
@@ -94,6 +94,7 @@ export class ResetPasswordComponent implements OnInit {
           })
           this.router.navigate(['login']);
         },() =>{
+          this.isLoading = false
           const Toast = Swal.mixin({
             toast: true,
             position: 'top',

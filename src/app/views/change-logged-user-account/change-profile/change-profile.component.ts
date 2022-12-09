@@ -5,6 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { UserExistsValidationService } from 'src/app/services/user/user-exists-validation.service';
 
 @Component({
   selector: 'app-change-profile',
@@ -15,18 +16,20 @@ export class ChangeProfileComponent implements OnInit {
 
   form: FormGroup
   @ViewChild('myForm') myForm;
+  isLoading: boolean = false
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private userService: UserService,
+    private userExistsValidationService: UserExistsValidationService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       name: [null, [Validators.required]],
-      email: [null, [Validators.required, Validators.email]],
+      email: [null, [Validators.required, Validators.email], [this.userExistsValidationService.userExists()]],
     })
 
     this.form.get('name').setValue(this.authService.getSignedinUserName())
@@ -50,9 +53,12 @@ export class ChangeProfileComponent implements OnInit {
       allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
+        this.isLoading = true
         this.userService.updateUserData(user, this.authService.getSignedinUserEmail()).subscribe(() => {
               this.authService.signout();
               return true;
+          }, () => {
+            this.isLoading = false
           })
 
         }

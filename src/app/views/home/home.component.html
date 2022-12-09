@@ -12,13 +12,16 @@
             <div class="row mx-auto ">
             <div  class="col-9 col-md-10">
               <mat-form-field  class="task-input centralize" >
-                <mat-label >Task</mat-label>
+                <mat-label>Task</mat-label>
                 <input matInput formControlName="task" >
               </mat-form-field>
             </div>
             <div class="col-2">
               <div class="centralize">
-                <button class="add-task-button " mat-raised-button [disabled]="form.invalid" (click)="addTask()"><mat-icon>add</mat-icon></button>
+                <button class="add-task-button " mat-raised-button [disabled]="form.invalid || isLoading" (click)="addTask()">
+                  <mat-icon *ngIf="!isLoading">add</mat-icon>
+                  <div *ngIf="isLoading" class="spinner-button"><mat-spinner [diameter]="35"></mat-spinner></div>
+                </button>
               </div>
             </div>
           </div>
@@ -51,7 +54,7 @@
           <div class="tasks-list">
             <div class="tasks-list-content" *ngIf="todoTasksList$|async as todoTasksList">
               <mat-card class="task-todo-card mb-4" *ngFor="let taskTodo of todoTasksList">
-                <div class="row">
+                <div  class="row">
                   <div class="col-1">
                     <mat-checkbox class="centralize" [checked]="isTaskDone(taskTodo.status)" (click)="changeTaskStatus(taskTodo.id)"></mat-checkbox>
                   </div>
@@ -72,6 +75,9 @@
                   </div>
                 </div>
               </mat-card>
+                <div *ngIf="loadingTodoTasks" class="centralize spinner-button">
+                  <mat-spinner></mat-spinner>loading
+                </div>
               <div class="centralize" *ngIf="todoTasksList.length == 0">
                 <h1>You don't have any tasks to do!</h1>
               </div>

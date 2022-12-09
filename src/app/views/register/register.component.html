@@ -35,10 +35,7 @@
 
             <mat-form-field class="example-full-width mt-1" >
               <mat-label>Password</mat-label>
-              <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
-              <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
-                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
+              <input matInput type="password" formControlName="password">
             </mat-form-field>
 
             <div class="text-start">
@@ -89,15 +86,15 @@
               </app-message>
             <mat-form-field class="example-full-width mt-1">
               <mat-label>Confirm the password</mat-label>
-              <input matInput [type]="hidePasswordConfirm ? 'password' : 'text'" formControlName="passwordConfirm">
-              <button mat-icon-button matSuffix (click)="hidePasswordConfirm = !hidePasswordConfirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePasswordConfirm">
-                <mat-icon>{{hidePasswordConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
+              <input matInput type="password" formControlName="passwordConfirm">
             </mat-form-field>
 
             <div class="row">
               <div class="col-12 md-auto mt-1">
-              <button class="register-button" mat-raised-button color="primary" [disabled]="form.invalid">SIGN UP</button>
+              <button class="register-button" mat-raised-button color="primary" [disabled]="form.invalid || isLoading">
+                <b *ngIf="!isLoading">SIGN UP</b>
+                <div *ngIf="isLoading" class="spinner-button"><mat-spinner [diameter]="35"></mat-spinner></div>
+              </button>
               </div>
             </div>
 

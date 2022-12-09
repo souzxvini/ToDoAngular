@@ -18,6 +18,10 @@
   background-color: rgb(216, 201, 62);
 }
 
+button{
+  width: 100%!important;
+}
+
 .form{
   padding: 50px;
   width: 500px;
@@ -69,6 +73,13 @@
 
 .edit-profile-form{
   margin-top: 50px;
+}
+
+.spinner-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 @media (max-width: 900px){
