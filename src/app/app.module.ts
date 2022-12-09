@@ -39,6 +39,7 @@ import { UserExitDialogComponent } from './views/dialogs/user-exit-dialog/user-e
 import { FooterComponent } from './components/footer/footer.component';
 import { ChangeProfileComponent } from './views/change-logged-user-account/change-profile/change-profile.component';
 import { ConfirmLoggedUserComponent } from './views/change-logged-user-account/confirm-logged-user/confirm-logged-user.component';
+import { ErrorComponent } from './views/error/error.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ConfirmLoggedUserComponent } from './views/change-logged-user-account/c
     ChangeProfileComponent,
     EditProfileDialogComponent,
     ChangePasswordComponent,
-    ConfirmLoggedUserComponent
+    ConfirmLoggedUserComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

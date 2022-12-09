@@ -12,6 +12,7 @@ import { ChangeProfileComponent } from './views/change-logged-user-account/chang
 import { UserExitEditProfileGuard } from './guards/user-exit-edit-profile.guard';
 import { ChangePasswordComponent } from './views/change-logged-user-account/change-password/change-password.component';
 import { ChangePasswordGuard } from './guards/change-password.guard';
+import { ErrorComponent } from './views/error/error.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,14 @@ const routes: Routes = [
     component: ChangePasswordComponent,
     canActivate: [ChangePasswordGuard],
     canDeactivate: [UserExitEditProfileGuard]
+  },
+  {
+    path:'**',
+    redirectTo: '404'
+  },
+  {
+    path:'404',
+    component: ErrorComponent,
   },
 ];
 
