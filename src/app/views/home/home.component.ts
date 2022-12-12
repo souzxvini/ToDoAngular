@@ -71,8 +71,10 @@ export class HomeComponent implements OnInit {
   }
 
   getDoneTasks(){
+    this.loadingDoneTasks = true
     this.doneTasksList$ = this.taskService.getDoneTasks().pipe(
       tap(() => {
+        this.loadingDoneTasks = false
         this.getProgress()
       })
     )
@@ -137,9 +139,11 @@ export class HomeComponent implements OnInit {
       allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
+        this.loadingDoneTasks = true
         this.doneTasksList$ = this.taskService.deleteTask(taskId).pipe(
           switchMap(() => this.taskService.getDoneTasks()),
           tap(() => {
+            this.loadingDoneTasks = false
             this.getProgress()
             this.alert("top", "Task deleted!", "success")
           })
@@ -185,7 +189,7 @@ export class HomeComponent implements OnInit {
     let subs2 = this.taskService.getDoneTasks().subscribe(data => {
       subs2.unsubscribe();
       this.doneTasks = data.length
-      this.progress = this.doneTasks / this.totalTasks * 100;
+      this.progress = (this.doneTasks / this.totalTasks) * 100;
       if(string){
         if(this.progress == 100){
           const dialogRef = this.dialog.open(ProgressCompletedComponent, {

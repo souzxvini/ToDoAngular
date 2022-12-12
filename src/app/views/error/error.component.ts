@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  constructor() { }
+  isUserLoggedIn: boolean;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.isUserLoggedIn = this.authService.isUserSignedin()
   }
 
 }

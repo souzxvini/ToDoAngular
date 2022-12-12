@@ -2,6 +2,8 @@
   <div class="centralize">
     <h1 class="error ">ERROR 404</h1>
     <h1 class="mt-3">Sorry... it looks like this page doesn't exists!</h1>
-    <h2 class="mt-3">Go back to <a class="links" [routerLink]="['/login']">Login!</a></h2>
+    <h2 class="mt-3">Go back to
+      <a *ngIf="isUserLoggedIn" class="links" [routerLink]="['/home']">Home</a>
+      <a *ngIf="!isUserLoggedIn" class="links" [routerLink]="['/login']">Login</a></h2>
   </div>
 </div>

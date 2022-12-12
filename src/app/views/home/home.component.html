@@ -52,6 +52,9 @@
           </div>
           <mat-divider class="mb-4"></mat-divider>
           <div class="tasks-list">
+            <div *ngIf="loadingTodoTasks" class="centralize spinner-button">
+              <mat-spinner></mat-spinner>loading
+            </div>
             <div class="tasks-list-content" *ngIf="todoTasksList$|async as todoTasksList">
               <mat-card class="task-todo-card mb-4" *ngFor="let taskTodo of todoTasksList">
                 <div  class="row">
@@ -75,9 +78,7 @@
                   </div>
                 </div>
               </mat-card>
-                <div *ngIf="loadingTodoTasks" class="centralize spinner-button">
-                  <mat-spinner></mat-spinner>loading
-                </div>
+
               <div class="centralize" *ngIf="todoTasksList.length == 0">
                 <h1>You don't have any tasks to do!</h1>
               </div>
@@ -91,6 +92,9 @@
           </div>
           <mat-divider class="mb-4"></mat-divider>
           <div class="tasks-list">
+            <div *ngIf="loadingDoneTasks" class="centralize spinner-button">
+              <mat-spinner></mat-spinner>Loading...
+            </div>
             <div class="tasks-list-content" *ngIf="doneTasksList$|async as doneTasksList">
               <mat-card class="task-done-card mb-4" *ngFor="let taskDone of doneTasksList">
                 <div class="row">
