@@ -184,14 +184,10 @@ export class HomeComponent implements OnInit {
   }
 
   getProgress(string?: string){
-    let subs = this.taskService.getAllTasks().subscribe(data => {
-      subs.unsubscribe();
-      this.totalTasks = data.length
-    })
-    let subs2 = this.taskService.getDoneTasks().subscribe(data => {
-      subs2.unsubscribe();
-      this.doneTasks = data.length
-      this.progress = (this.doneTasks / this.totalTasks) * 100;
+
+    let subs = this.taskService.getProgress().subscribe(data => {
+      subs.unsubscribe()
+      this.progress = data.progress
       if(string){
         if(this.progress == 100){
           const dialogRef = this.dialog.open(ProgressCompletedComponent, {
@@ -201,8 +197,8 @@ export class HomeComponent implements OnInit {
            })
       }
       }
-
     })
+
   }
 
   alert(position: SweetAlertPosition, message: string, icon: SweetAlertIcon){

@@ -47,4 +47,8 @@ changeTaskStatus(id: number): Observable<boolean>{
   return this.http.get<boolean>(`${API}/task/isTaskStatusDone/${id}`);
 }
 
+getProgress(): Observable<any>{
+  return this.http.get<any>(`${API}/task/getProgress`);
+}
+
 }
