@@ -172,7 +172,7 @@ small{
 @media (max-width: 1000px) {
 
   .container{
-    margin-bottom: 210%;
+    margin-bottom: 190%;
   }
 
   .background{
@@ -203,7 +203,7 @@ small{
   .tasks-todo{
     grid-column-start: 1;
     grid-column-end: 5;
-    padding: 30px;
+    padding: 20px 10px 10px 10px;
     background-color: white;
 
   }
@@ -211,7 +211,7 @@ small{
   .tasks-done{
     grid-column-start: 1;
     grid-column-end: 5;
-    padding: 30px;
+    padding:  20px 10px 10px 10px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
     background-color: white;
   }
