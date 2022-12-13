@@ -18,3 +18,12 @@
 .cancel-button{
   font-size: 1.1em;
 }
+
+.spinner-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rgb(100, 100, 100);
+  padding: 7px 25px;
+}

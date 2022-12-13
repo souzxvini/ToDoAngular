@@ -10,12 +10,16 @@
   <mat-form-field class="example-full-width " >
     <mat-label >Task</mat-label>
     <input matInput formControlName="task" >
+    <div *ngIf="isLoadingTask" class="spinner-button">Loading task...<mat-spinner [diameter]="20"></mat-spinner></div>
   </mat-form-field>
 
   <div mat-dialog-actions>
-      <button class="cancel-button" mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+      <button class="cancel-button" mat-raised-button color="warn" [disabled]="isLoading" (click)="cancel(false)">Cancel</button>
       <span class="example-spacer"></span>
-    <button class="update-button" mat-raised-button color="primary" [disabled]="form.invalid" (click)="updateTask()">Update</button>
+    <button class="update-button" mat-raised-button color="primary" [disabled]="form.invalid || isLoading || isLoadingTask" (click)="updateTask()">
+      <b *ngIf="!isLoading">Update</b>
+      <div *ngIf="isLoading" class="spinner-button"><mat-spinner [diameter]="25"></mat-spinner></div>
+    </button>
   </div>
 
 </form>

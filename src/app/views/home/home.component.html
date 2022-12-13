@@ -53,7 +53,7 @@
           <mat-divider class="mb-4"></mat-divider>
           <div class="tasks-list">
             <div *ngIf="loadingTodoTasks" class="centralize spinner-button">
-              <mat-spinner></mat-spinner>loading
+              <mat-spinner></mat-spinner>Loading...
             </div>
             <div class="tasks-list-content" *ngIf="todoTasksList$|async as todoTasksList">
               <mat-card class="task-todo-card mb-4" *ngFor="let taskTodo of todoTasksList">

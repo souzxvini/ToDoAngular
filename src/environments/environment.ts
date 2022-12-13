@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: "https://todo.souzxvini.com.br"
+  API: "http://localhost:8081"
 };
 
 /*

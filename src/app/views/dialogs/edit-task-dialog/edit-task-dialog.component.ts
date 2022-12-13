@@ -15,6 +15,8 @@ export class EditTaskDialogComponent implements OnInit {
   id: number
   form: FormGroup
   task: Task
+  isLoading: boolean = false
+  isLoadingTask: boolean = false
 
   constructor(
     public dialogRef: MatDialogRef<EditTaskDialogComponent>,
@@ -32,7 +34,11 @@ export class EditTaskDialogComponent implements OnInit {
   }
 
   getTask(){
+    this.isLoadingTask = true
+    this.form.get('task').disable()
     this.taskService.taskDetails(this.id).subscribe(data => {
+      this.isLoadingTask = false
+      this.form.get('task').enable()
       this.task = data
       this.fillForm()
     })
@@ -43,18 +49,20 @@ export class EditTaskDialogComponent implements OnInit {
   }
 
   updateTask(){
+    this.isLoading = true
     let task = new Task()
     task.description = this.form.get('task').value
 
     this.taskService.updateTask(task, this.id).subscribe(() =>{
-      this.cancel()
+      this.isLoading = false
+      this.cancel(true)
       this.alert("top", "Task updated!", "success")
 
     })
   }
 
-  cancel(): void{
-    this.dialogRef.close();
+  cancel(recarregar: boolean): void{
+    this.dialogRef.close({recarregar: recarregar});
     this.form.reset();
   }
 

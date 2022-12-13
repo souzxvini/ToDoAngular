@@ -157,9 +157,11 @@ export class HomeComponent implements OnInit {
       width: '600px'
      });
      dialogRef.componentInstance.id = id;
-     dialogRef.afterClosed().subscribe(() => {
-      this.getTodoTasks()
-      this.getProgress()
+     dialogRef.afterClosed().subscribe(data => {
+      if(data.recarregar){
+        this.getTodoTasks()
+        this.getProgress()
+      }
      })
   }
 
